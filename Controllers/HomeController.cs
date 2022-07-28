@@ -21,15 +21,17 @@ namespace PokeAppMVC.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             List<Pokemon> pokemonList = _dataAcess.GetPokemonListAsync().GetAwaiter().GetResult().PokemonList.OrderBy(v => v.Name).ToList();
 
+
             return View(pokemonList);
         }
-
+        
         [HttpPost]
-        public IActionResult PokemonSearch(string pokemonSearched)
+        public IActionResult Index(string pokemonSearched)
         {
             List<Pokemon> pokemonList = new List<Pokemon>();
 
@@ -40,19 +42,15 @@ namespace PokeAppMVC.Controllers
             else
                 pokemonList = _dataAcess.GetPokemonListAsync().GetAwaiter().GetResult().PokemonList.OrderBy(v => v.Name).ToList();
 
-            return PartialView("_IndexForSearch", pokemonList);
+            return View(pokemonList);
         }
+
 
         [HttpPost]
         public PartialViewResult PokemonDetails(string pokemonDetail)
         {
             PokemonDetail details = _dataAcess.GetPokemonByIdAsync(pokemonDetail).GetAwaiter().GetResult();
             List<Ability> abilities = _dataAcess.GetPokemonByIdAsync(pokemonDetail).GetAwaiter().GetResult().Abilities;
-
-            // dynamic multipleModel = new ExpandoObject();
-            // multipleModel.Moves = moves;
-            // multipleModel.Abilities = abilities;
-
 
             return PartialView("_PokemonDetails", details);
         }

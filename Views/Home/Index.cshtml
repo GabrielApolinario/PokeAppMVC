@@ -2,7 +2,6 @@
 
 @{
     ViewData["Title"] = "Pokedex";
-
 }
 
 <script type="text/javascript">
@@ -10,7 +9,7 @@
     function AddPokemonDetails(pokemonUrl, pokemonName) {
         $.post('@Url.Action("PokemonDetails", "Home")',
             {"pokemonDetail" : pokemonUrl})
-        .done(function (data) {
+        .done(function (data) {            
                 $("#" + pokemonName).html(data);
                 $("#" + pokemonName).slideToggle();
                 //alert("Sucesso");

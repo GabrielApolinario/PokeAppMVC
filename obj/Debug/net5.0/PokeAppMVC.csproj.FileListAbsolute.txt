@@ -805,7 +805,6 @@ D:\Projetos\PokeAppMVC\obj\Debug\net5.0\refint\PokeAppMVC.dll
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\PokeAppMVC.pdb
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\PokeAppMVC.genruntimeconfig.cache
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\ref\PokeAppMVC.dll
-D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\_IndexForSearch.cshtml.g.cs
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\_PokemonDetails.cshtml.g.cs
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\_PokemonAbilities.cshtml.g.cs
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\_PokemonMoves.cshtml.g.cs
