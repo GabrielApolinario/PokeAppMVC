@@ -33,28 +33,14 @@ namespace PokeAppMVC.Controllers
         {
             List<Pokemon> pokemonList = new List<Pokemon>();
 
-#nullable enable
-            string? normalizedPokemonSearched = "";
-
-            try
-            {
-                normalizedPokemonSearched = pokemonSearched.Trim().Length > 0 ? pokemonSearched : null;
-
-            }
-            catch (Exception ex)
-            {                
-                normalizedPokemonSearched = null;                
-            }
-
-            if (normalizedPokemonSearched != null)
+            if (!string.IsNullOrWhiteSpace(pokemonSearched))
                 pokemonList = _dataAcess.GetPokemonListAsync().GetAwaiter().GetResult().PokemonList
                     .Where(p => p.Name.Contains(pokemonSearched))
                     .OrderBy(v => v.Name).ToList().ToList();
             else
-
                 pokemonList = _dataAcess.GetPokemonListAsync().GetAwaiter().GetResult().PokemonList.OrderBy(v => v.Name).ToList();
 
-            return View("IndexForSearchPartialView", pokemonList);
+            return PartialView("_IndexForSearch", pokemonList);
         }
 
         [HttpPost]
@@ -68,7 +54,7 @@ namespace PokeAppMVC.Controllers
             // multipleModel.Abilities = abilities;
 
 
-            return PartialView("PokemonDetailsPartialView", details);
+            return PartialView("_PokemonDetails", details);
         }
 
         [HttpPost]
@@ -76,7 +62,7 @@ namespace PokeAppMVC.Controllers
         {
             List<Move> movesResult = JsonConvert.DeserializeObject<List<Move>>(movesList);
 
-            return PartialView("PokemonMovesPartialView", movesResult);
+            return PartialView("_PokemonMoves", movesResult);
         }
 
         [HttpPost]
@@ -84,7 +70,7 @@ namespace PokeAppMVC.Controllers
         {
             List<Ability> abilitiesResult = JsonConvert.DeserializeObject<List<Ability>>(abilitiesList);
 
-            return PartialView("PokemonAbilitiesPartialView", abilitiesResult);
+            return PartialView("_PokemonAbilities", abilitiesResult);
         }
 
         public IActionResult Privacy()

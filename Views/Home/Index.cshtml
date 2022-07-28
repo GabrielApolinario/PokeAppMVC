@@ -19,36 +19,9 @@
             alert("falha ao buscar os detalhes");
         });
     }
-    $(document).ready(function(){
-
-        //$("#pokemonTable").find("button").click(function(){
-        //    $(this).toggleClass("fa-angle-right");
-        //    $(this).toggleClass("fa-angle-down");
-        //})
-
-        $("#searchBtn").click(function(){
-            var text = $("#searchBar").val();
-            $.ajax({
-            url: '@Url.Action("PokemonSearch", "Home")',
-            type: 'POST',
-            data: {pokemonSearched: text},
-            success: function (data) {
-                $("#pokemonTableBody").empty();
-                $("#pokemonTableBody").html(data);
-                    //alert("Sucesso");
-            },
-            failure: function(){
-                alert("falha ao buscar os detalhes");
-            }
-        });
-        })
-    })
 
 </script>
-<div class="d-flex">
-    <input id="searchBar" placeholder="Buscar Pokemon" class="w-50" />
-    <button id="searchBtn">Pesquisar</button>
-</div>
+
 <table class="table table-striped w-50" id="pokemonTable">
     <thead>
         <tr>

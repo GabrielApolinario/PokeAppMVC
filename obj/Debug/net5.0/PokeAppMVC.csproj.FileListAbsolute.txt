@@ -790,7 +790,6 @@ D:\Projetos\PokeAppMVC\obj\Debug\net5.0\PokeAppMVC.TagHelpers.input.cache
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\PokeAppMVC.TagHelpers.output.cache
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\PokeAppMVC.RazorCoreGenerate.cache
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\PokemonDetailsPartialView.cshtml.g.cs
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -806,6 +805,7 @@ D:\Projetos\PokeAppMVC\obj\Debug\net5.0\refint\PokeAppMVC.dll
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\PokeAppMVC.pdb
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\PokeAppMVC.genruntimeconfig.cache
 D:\Projetos\PokeAppMVC\obj\Debug\net5.0\ref\PokeAppMVC.dll
-D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\PokemonMovesPartialView.cshtml.g.cs
-D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\PokemonAbilitiesPartialView.cshtml.g.cs
-D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\IndexForSearchPartialView.cshtml.g.cs
+D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\_IndexForSearch.cshtml.g.cs
+D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\_PokemonDetails.cshtml.g.cs
+D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\_PokemonAbilities.cshtml.g.cs
+D:\Projetos\PokeAppMVC\obj\Debug\net5.0\Razor\Views\Home\_PokemonMoves.cshtml.g.cs
