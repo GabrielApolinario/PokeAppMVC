@@ -1,0 +1,15 @@
+﻿@model List<Ability>
+
+<table class="table table-striped">
+    <tbody>
+        @foreach (var ability in Model)
+        {
+            <tr>
+                <td>
+                    <p>@ability.PokemonAbility.Name</p>
+                </td>
+            </tr>
+        }
+        </td>
+    </tbody>
+</table>

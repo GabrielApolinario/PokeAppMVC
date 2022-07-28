@@ -1,0 +1,14 @@
+﻿@model List<Move>
+
+<table>
+    <tbody>
+        @foreach (var moves in Model)
+        {
+            <tr>
+                <td>
+                    <p>@moves.PokemonMove.Name</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

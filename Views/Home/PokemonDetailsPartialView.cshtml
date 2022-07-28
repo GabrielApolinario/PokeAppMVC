@@ -1,0 +1,86 @@
+﻿@using Newtonsoft.Json
+@model PokemonDetail
+
+<script type="text/javascript">
+
+    function AddPokemonMoves(movesList, divName) {
+        $.ajax({
+            url: '@Url.Action("PokemonMoves", "Home")',
+            type: 'POST',
+            data: {movesList: movesList},
+            success: function (data) {           
+                var div = "#" + divName;
+                    $(div).html(data);
+                    $(div).slideToggle();
+                    //alert("Sucesso");
+            },
+            failure: function(){
+                alert("falha ao buscar os detalhes");
+            }
+        });
+    }
+
+    function AddPokemonAbilities(abilitiesList, divName) {
+        $.ajax({
+            url: '@Url.Action("PokemonAbilities", "Home")',
+            type: 'POST',
+            data: {abilitiesList: abilitiesList},
+            success: function (data) {       
+                    var div = "#" + divName;
+                    $(div).html(data);
+                    $(div).slideToggle();
+                    //alert("Sucesso");
+            },
+            failure: function(){
+                alert("falha ao buscar os detalhes");
+            }
+        });
+    }
+
+     $(document).ready(function(){
+
+        //$("#pokemonDetails").find("button").click(function(){
+        //    $(this).toggleClass("fa-angle-right");
+        //    $(this).toggleClass("fa-angle-down");
+        //})
+
+    })
+
+</script>
+@{
+    var movesGenericList = Model.Moves;
+    var jsonMovesList = JsonConvert.SerializeObject(movesGenericList);
+
+    var abilitiesGenericList = Model.Abilities;
+    var jsonAbilitiesList = JsonConvert.SerializeObject(abilitiesGenericList);
+
+    string moveDivName = "movesTable" + Model.Name;
+    string abilityDivName = "abilitiesTable" + Model.Name;
+}
+<div id="pokemonDetails">
+
+    <div class="d-flex">
+        <div>
+            <p>Movimentos</p>
+        </div>
+        <div>
+            <p id="moveDetails" class="text-right pr-5">
+                <button type="button" id="movesDetailBtn" onclick="AddPokemonMoves('@jsonMovesList', '@moveDivName')" class="fas fa-angle-right text-dark bg-transparent border-0"></button>
+            </p>
+            <div id="@moveDivName" style="display:none"></div>
+        </div>
+
+
+    </div>
+    <div class="d-flex">
+        <div>
+            <p>Habilidades</p>
+        </div>
+        <div>
+            <p id="abilitiesDetails" class="text-right pr-5">
+                <button type="button" id="abilitiesDetailBtn" onclick="AddPokemonAbilities('@jsonAbilitiesList', '@abilityDivName')" class="fas fa-angle-right text-dark bg-transparent border-0"></button>
+            </p>
+            <div id="@abilityDivName" style="display:none;"></div>
+        </div>
+    </div>
+</div>
