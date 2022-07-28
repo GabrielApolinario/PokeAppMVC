@@ -26,6 +26,7 @@ namespace PokeAppMVC.Controllers
         {
             List<Pokemon> pokemonList = _dataAcess.GetPokemonListAsync().GetAwaiter().GetResult().PokemonList.OrderBy(v => v.Name).ToList();
 
+            ViewData["UseLayout"] = "~/Views/Shared/_Layout.cshtml";
 
             return View(pokemonList);
         }
@@ -41,6 +42,8 @@ namespace PokeAppMVC.Controllers
                     .OrderBy(v => v.Name).ToList().ToList();
             else
                 pokemonList = _dataAcess.GetPokemonListAsync().GetAwaiter().GetResult().PokemonList.OrderBy(v => v.Name).ToList();
+
+            ViewData["UseLayout"] = "";
 
             return View(pokemonList);
         }

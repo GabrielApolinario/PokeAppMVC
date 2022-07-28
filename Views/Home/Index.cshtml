@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Pokedex";
+    Layout = ViewData["UseLayout"].ToString();
 }
 
 <script type="text/javascript">
@@ -9,7 +10,7 @@
     function AddPokemonDetails(pokemonUrl, pokemonName) {
         $.post('@Url.Action("PokemonDetails", "Home")',
             {"pokemonDetail" : pokemonUrl})
-        .done(function (data) {            
+        .done(function (data) {
                 $("#" + pokemonName).html(data);
                 $("#" + pokemonName).slideToggle();
                 //alert("Sucesso");
@@ -20,32 +21,33 @@
     }
 
 </script>
-
-<table class="table table-striped w-50" id="pokemonTable">
-    <thead>
-        <tr>
-            <td>Pokemon</td>
-            <td class="text-right pr-4">Detalhes</td>
-        </tr>
-    </thead>
-    <tbody id="pokemonTableBody">
-
-        @foreach (var pokemon in Model)
-        {
-            string name = pokemon.Name;
-            string pokemonName = char.ToUpper(name[0]) + name.Substring(1);
-            <tr id="detailLine">
-                <td>@pokemonName</td>
-                <td id="moves" class="text-right pr-5">                    
-                    <button type="button" id="detailsBtn" onclick="AddPokemonDetails('@pokemon.UrlDetail', '@pokemonName')" class="fas fa-angle-right text-dark bg-transparent border-0"></button>
-                </td>
-                
-            </tr>
+<div id="content">
+    <table class="table table-striped w-50" id="pokemonTable">
+        <thead>
             <tr>
-                <td>
-                    <div id="@pokemonName" style="display:none;"></div>
-                </td>
+                <td>Pokemon</td>
+                <td class="text-right pr-4">Detalhes</td>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody id="pokemonTableBody">
+
+            @foreach (var pokemon in Model)
+            {
+                string name = pokemon.Name;
+                string pokemonName = char.ToUpper(name[0]) + name.Substring(1);
+                <tr id="detailLine">
+                    <td>@pokemonName</td>
+                    <td id="moves" class="text-right pr-5">
+                        <button type="button" id="detailsBtn" onclick="AddPokemonDetails('@pokemon.UrlDetail', '@pokemonName')" class="fas fa-angle-right text-dark bg-transparent border-0"></button>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <div id="@pokemonName" style="display:none;"></div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

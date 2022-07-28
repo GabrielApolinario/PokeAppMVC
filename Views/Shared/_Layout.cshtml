@@ -21,31 +21,18 @@
                         var text = $("#searchBar").val();
                         var isSearchBarNull = isNullOrWhiteSpace(text);
 
-                        if(isSearchBarNull){
-                            $.ajax({
-                            url: '@Url.Action("Index", "Home")',
-                            type: 'GET',
-                            success: function(){
-                                $("#pokemonTableBody").empty();
-                                $("#pokemonTableBody").html(data);
-                                }
-                            });
-                        }
-                        else{
                             $.ajax({
                             url: '@Url.Action("Index", "Home")',
                             type: 'POST',
                             data: {pokemonSearched: text},
                             success: function (data) {
-                                $("#pokemonTableBody").empty();
-                                console.log(data);
-                                $("#pokemonTableBody").html(data);                                    
+                                $("#content").empty();
+                                $("#content").html(data);
                                     },
                             failure: function(){
                                 alert("falha ao buscar os detalhes");
                                     }
                                 });
-                        }
                     })
 
         })
